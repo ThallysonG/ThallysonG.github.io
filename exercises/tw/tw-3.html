@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Docs Layout • Tailwind via CDN</title>
+
+    <!-- Tailwind via CDN with Typography plugin -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+      // Optional: tweak Tailwind theme a touch
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe',
+                300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1',
+                600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81'
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <meta name="color-scheme" content="light dark" />
+  </head>
+  <body class="bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
+    <!-- Skip to content -->
+    <a href="#content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-slate-900 focus:shadow dark:focus:bg-slate-800 dark:focus:text-slate-50">Skip to content</a>
+
+    <!-- Top bar with Edit on GitHub button -->
+    <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:border-slate-800 dark:bg-slate-950/70">
+      <div class="mx-auto max-w-screen-2xl px-4">
+        <div class="flex h-14 items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-brand-600 text-white shadow-sm">D</span>
+            <span class="font-semibold tracking-tight">Docs</span>
+          </div>
+
+          <!-- Utility-styled component: Edit on GitHub button -->
+          <a
+            href="#"
+            class="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50 hover:shadow md:px-3.5 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+            aria-label="Edit this page on GitHub"
+          >
+            <!-- GitHub mark -->
+            <svg aria-hidden="true" viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.486 2 12.018c0 4.424 2.865 8.175 6.839 9.496.5.093.682-.217.682-.483 0-.237-.009-.866-.014-1.7-2.782.605-3.369-1.342-3.369-1.342-.455-1.156-1.111-1.464-1.111-1.464-.908-.62.07-.607.07-.607 1.004.07 1.532 1.03 1.532 1.03.893 1.53 2.343 1.088 2.913.833.091-.648.35-1.088.636-1.338-2.222-.253-4.555-1.114-4.555-4.957 0-1.094.39-1.99 1.03-2.691-.103-.253-.447-1.272.098-2.65 0 0 .84-.27 2.75 1.027A9.56 9.56 0 0 1 12 6.84c.851.004 1.707.115 2.508.337 1.908-1.297 2.747-1.027 2.747-1.027.547 1.378.203 2.397.1 2.65.64.701 1.028 1.597 1.028 2.69 0 3.853-2.336 4.701-4.565 4.95.357.308.676.918.676 1.852 0 1.336-.012 2.415-.012 2.743 0 .269.18.58.688.481 3.97-1.323 6.834-5.073 6.834-9.496C22 6.486 17.523 2 12 2Z" clip-rule="evenodd"/>
+            </svg>
+            <span class="hidden sm:inline">Edit on GitHub</span>
+            <span class="sm:hidden">Edit</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Layout -->
+    <main id="content" class="mx-auto max-w-screen-2xl px-4">
+      <div class="mx-auto grid w-full gap-8 py-10 lg:grid-cols-[16rem_minmax(0,1fr)]">
+        <!-- Sidebar (visible on lg+) -->
+        <aside class="hidden lg:block">
+          <nav aria-label="Section navigation" class="sticky top-24 flex max-h-[calc(100vh-8rem)] flex-col overflow-y-auto rounded-xl border border-slate-200 p-4 text-sm dark:border-slate-800">
+            <p class="mb-2 px-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">On this page</p>
+            <ul class="space-y-1">
+              <li><a class="block rounded-md px-2 py-1.5 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800" href="#introduction">Introduction</a></li>
+              <li><a class="block rounded-md px-2 py-1.5 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800" href="#installation">Installation</a></li>
+              <li><a class="block rounded-md px-2 py-1.5 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800" href="#layout">Layout</a></li>
+              <li><a class="block rounded-md px-2 py-1.5 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800" href="#components">Components</a></li>
+              <li><a class="block rounded-md px-2 py-1.5 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800" href="#accessibility">Accessibility</a></li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- Mobile TOC -->
+        <div class="lg:hidden">
+          <details class="rounded-lg border border-slate-200 p-3 dark:border-slate-800">
+            <summary class="cursor-pointer select-none text-sm font-medium">On this page</summary>
+            <nav class="mt-2 text-sm">
+              <ul class="space-y-1">
+                <li><a class="block rounded-md px-2 py-1.5 hover:bg-slate-100 dark:hover:bg-slate-800" href="#introduction">Introduction</a></li>
+                <li><a class="block rounded-md px-2 py-1.5 hover:bg-slate-100 dark:hover:bg-slate-800" href="#installation">Installation</a></li>
+                <li><a class="block rounded-md px-2 py-1.5 hover:bg-slate-100 dark:hover:bg-slate-800" href="#layout">Layout</a></li>
+                <li><a class="block rounded-md px-2 py-1.5 hover:bg-slate-100 dark:hover:bg-slate-800" href="#components">Components</a></li>
+                <li><a class="block rounded-md px-2 py-1.5 hover:bg-slate-100 dark:hover:bg-slate-800" href="#accessibility">Accessibility</a></li>
+              </ul>
+            </nav>
+          </details>
+        </div>
+
+        <!-- Main content -->
+        <article class="prose prose-slate max-w-prose dark:prose-invert">
+          <h1 id="introduction" class="scroll-mt-24">Documentation Layout with Tailwind (CDN)</h1>
+          <p>This page demonstrates a simple, production-ready documentation layout built with Tailwind via the CDN. On large screens (lg and up), you get a left sidebar with section links; on smaller screens, everything stacks into a single column for a clean reading experience.</p>
+
+          <h2 id="installation" class="mt-12 scroll-mt-24">Installation</h2>
+          <p>Using the CDN is the fastest way to experiment. Add the script tag below to your HTML and include the Typography plugin to get pleasant default styles for prose content.</p>
+          <pre><code class="language-html">&lt;script src="https://cdn.tailwindcss.com?plugins=typography"&gt;&lt;/script&gt;</code></pre>
+
+          <h2 id="layout" class="mt-12 scroll-mt-24">Layout</h2>
+          <p>The layout uses a responsive grid: a fixed-width sidebar and a flexible content column. The main article is constrained with <code>max-w-prose</code> for optimal line length and comfortable reading.</p>
+          <ul>
+            <li><code>lg:grid-cols-[16rem_minmax(0,1fr)]</code> creates the two-column layout on large screens.</li>
+            <li>The sidebar is hidden by default and shown with <code>lg:block</code>.</li>
+            <li>Headings get generous top margins using utility classes like <code>mt-12</code>.</li>
+          </ul>
+
+          <h2 id="components" class="mt-12 scroll-mt-24">Components</h2>
+          <p>The “Edit on GitHub” button is a utility-based component: an anchor tag styled entirely with Tailwind classes. Copy the markup from the header and replace the <code>href</code> with your repository’s edit URL.</p>
+          <pre><code class="language-html">&lt;a href="https://github.com/your/repo/edit/main/path/to/page.md" class="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50 hover:shadow dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"&gt;Edit on GitHub&lt;/a&gt;</code></pre>
+
+          <h2 id="accessibility" class="mt-12 scroll-mt-24">Accessibility</h2>
+          <p>There’s a “Skip to content” link for keyboard users, sensible <code>aria-label</code>s, and focusable targets with visible hover states. The sidebar navigation is a semantic <code>&lt;nav&gt;</code>, and the mobile table of contents uses a native <code>&lt;details&gt;</code> disclosure.</p>
+
+          <h3 class="mt-10 scroll-mt-24" id="next-steps">Next Steps</h3>
+          <ol>
+            <li>Wire the GitHub button to your repo’s edit URL.</li>
+            <li>Populate the sidebar with real section links (IDs must match headings).</li>
+            <li>Add a search input and previous/next page links as needed.</li>
+          </ol>
+        </article>
+      </div>
+    </main>
+
+    <footer class="border-t border-slate-200 py-8 text-center text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
+      Built with Tailwind CSS via CDN · <span class="font-mono">max-w-prose</span> content · Responsive sidebar
+    </footer>
+  </body>
+</html>
